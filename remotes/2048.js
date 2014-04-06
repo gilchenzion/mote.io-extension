@@ -1,11 +1,15 @@
 
 exec(function(){
-  // this.game;
+  
+  // toggle options on update for restart and keep playing
   var option = false;
   var once = false;
+
   function start() {
         this.game = new GameManager(4, KeyboardInputManager, HTMLActuator, LocalStorageManager);
   }
+
+  //directional movement
   function up() {
         this.game.inputManager.emit("move", 0)
   }
@@ -18,12 +22,16 @@ exec(function(){
   function right() {
         this.game.inputManager.emit("move", 1)
   }
+
+  
   function restart() {
         this.game.inputManager.emit("restart")
   }
   function keepPlaying() {
         this.game.inputManager.emit("keepPlaying")
   }
+
+  
   function switchOptions(){
         if(option){
             option = false;
